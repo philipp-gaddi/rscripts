@@ -1,0 +1,20 @@
+model {
+  
+  # rates for all teams
+  for(i in 1:18) {
+    p[i,1] ~ dunif(0,1)
+    p[i,2] ~ dunif(0,1)
+    p[i,3] ~ dunif(0,1)
+    sun[i,] ~ dmulti(p[i,],34)
+  }
+  
+  # play every game, home game sight
+  for(i in 1:18) {
+    for(j in 18:1) {
+      rasch[i,j,1] <- exp(p[i,1] - p[j,1]) / (1 + exp(p[i,1] - p[j,1]))
+      rasch[i,j,2] <- exp(p[i,2] - p[j,2]) / (1 + exp(p[i,2] - p[j,2]))
+      rasch[i,j,3] <- exp(p[i,3] - p[j,3]) / (1 + exp(p[i,3] - p[j,3]))
+      #theta[i,j,] ~ dmulti(rasch[i,j,],2)
+    }
+  }
+}

@@ -1,0 +1,24 @@
+model {
+  # this model iterates over the set choices distribution
+  # an other way would be iterating over the docs, creating a dist of how he was choosen over the experiment
+  
+  
+  # likelihood
+  for (i in 1:choices_count) {
+    for (j in 1:2) { # iterate over the choices per set
+      logit(p[i,j]) <- b[j,1] + b[j,2] * note_1[i,j] 
+                        + b[j,3] * note_2[i,j]
+                        + b[j,4] * note_3[i,j]
+                        + b[j,5] * count_1[i,j]
+                        + b[j,6] * count_2[i,j]
+                        + b[j,7] * count_3[i,j]
+                        + b[j,8] * picture[i,j]
+    }
+    choice_set[i] ~ dmult(p[i,1:2], vp_count)
+  }
+  
+  # priors
+  # TODO priors b's
+  
+  
+}

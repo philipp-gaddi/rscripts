@@ -1,0 +1,7 @@
+model {
+  teta ~ dunif(0.4,0,6)
+  for(i in 1:n) {
+    # wie sind würfel verteilt?
+    x[i] ~ dunif(1,6)
+  }
+}

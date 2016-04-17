@@ -1,0 +1,20 @@
+# add the data dummy variables ...
+model {
+  # priors, b for grade, ratings, position, picture, recommendation
+  b[1:8] ~ dbmnorm(mu[], pre[,])
+  
+  # likelihood
+  for (i in 1:sample_size) {
+    # logit of p[i] is like b..+... so we get p
+    logit(p[i]) <- b[1] + b[2] * note_1[i] 
+                        + b[3] * note_2[i]
+                        + b[4] * note_3[i]
+                        + b[5] * count_1[i]
+                        + b[6] * count_2[i]
+                        + b[7] * count_3[i]
+                        + b[8] * picture[i]
+    # the choice (succes) is distributed like p, the probality for success
+    # n the amount of all sets
+    data[i] ~ dbin(p[i], n[i])
+  }
+}

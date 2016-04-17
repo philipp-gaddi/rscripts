@@ -1,0 +1,4 @@
+"","n","female","male","age.min","age.max","age.median","age.mean","fam.ledig","fam.heirat","schul.abi","schul.real","ausb.keine","ausb.lehre","ausb.bachelor","ausb.master","ausb.meister","taetigkeit.student","taetigkeit.schüler","taetigkeit.angestellt","taetigkeit.selbstständig","internet.min","internet.max","internet.median","internet.mean","arzt.min","arzt.max","arzt.median","arzt.mean"
+"gesamt",85,32,53,16,85,22,24.4470588235294,78,6,79,5,64,7,8,5,1,64,9,10,2,1,40,12,14.2941176470588,0,20,3,3.92941176470588
+"offline",33,9,24,19,44,22,22.969696969697,31,2,33,0,25,4,3,1,0,32,0,1,0,1,40,14,16.6666666666667,1,8,3,3.3030303030303
+"online",52,23,29,16,85,22,25.3846153846154,47,4,46,5,39,3,5,4,1,32,9,9,2,1,40,10,12.7884615384615,0,20,4,4.32692307692308

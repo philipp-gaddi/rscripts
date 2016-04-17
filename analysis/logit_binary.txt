@@ -1,0 +1,28 @@
+model {
+  
+  # likelihood
+  # in r is the count of vp who choosed the doc
+  # n[i] count of trials the doc appeared
+  # N count of doctors
+  for (doc in 1:18) {
+    logit(p[doc]) <- b[1] * note1[doc] + b[2] * note2[doc] + b[3] * note3[doc] 
+                      + b[4] * anzahl1[doc] + b[5] * anzahl2[doc] + b[6] * anzahl3[doc]
+                      + b[7] * photoID[doc]
+    r[doc] ~ dbin(p[doc], n[doc])
+  }
+  
+  
+  # priors
+  # noten
+  b[1] ~ dunif(-1000,1000)
+  b[2] ~ dunif(-1000,1000)
+  b[3] <- 0 # base
+  # anzahl
+  b[4] ~ dunif(-1000,1000)
+  b[5] ~ dunif(-1000,1000)
+  b[6] <- 0 # base
+  # photo
+  b[7] ~ dunif(-1000,1000)
+  
+  
+}

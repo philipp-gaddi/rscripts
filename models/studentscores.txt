@@ -1,0 +1,13 @@
+model {
+
+
+
+  wissenwk ~ dunif(0.5,1)
+  ratewk = 0.5
+  
+  
+  # likelihood
+  for(i in 1:N) {
+    
+  }
+}

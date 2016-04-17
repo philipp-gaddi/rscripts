@@ -1,0 +1,6 @@
+model{
+# Prior Distribution for Rate Theta
+theta ~ dbeta(1,1)
+# Observed Counts, theta and n are parameter for k so inwards arrows!!
+k ~ dbin(theta,n)
+}
